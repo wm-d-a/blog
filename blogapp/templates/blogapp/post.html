@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+{% for post in posts %}
+<div>
+    <H1>{{ post.title }}</H1>
+    <p>{{ post.text }}</p>
+    <p>Автор: {{ post.user.nickname }}</p>
+    <p>Тема: {{ post.rubric.name }}</p>
+    <p>Дата публикации: {{ post.published_time|date:"d.m.Y H:i:s" }}</p>
+    <p>Дата последнего редактирвания: {{ post.edited_time|date:"d.m.Y H:i:s" }}</p>
+</div>
+</body>
+</html>
