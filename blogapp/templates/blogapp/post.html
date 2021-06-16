@@ -5,8 +5,8 @@
     <title>Post</title>
 </head>
 <body>
-{% for post in posts %}
 <div>
+    <a href="{% url 'index' %}">На главную</a>
     <H1>{{ post.title }}</H1>
     <p>{{ post.text }}</p>
     <p>Автор: {{ post.user.nickname }}</p>
