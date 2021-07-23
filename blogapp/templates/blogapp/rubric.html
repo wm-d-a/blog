@@ -2,18 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <title>{{ rubric.name }}</title>
 </head>
 <body>
-<p>Список рубрик:
-<p>
-    {% for rubric in rubrics %}
-
-    <a href="{% url 'rubricView' pk=rubric.pk %}">{{rubric.name}} | </a>
-
-{% endfor %}
-</p>
-<a href="{% url 'post_new' %}">Новая запись</a>
+<p>Текущая рубрика: {{ rubric.name }}</p>
+<p><a href="{% url 'index' %}">На главную</a></p>
 {% for post in posts %}
 <div>
     <h2><a href="{% url 'post' pk=post.pk %}">{{ post.title }}</a></h2>
