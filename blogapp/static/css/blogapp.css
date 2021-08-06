@@ -40,9 +40,11 @@ body {
 }
 .footer{
     background-color: black;
-    height: 400px;
+
     margin-left: 0;
+    margin-right: 0;
     display: flex;
+    min-height: calc(100vh - 500px);
 }
 .footer-detail{
     margin: auto;
