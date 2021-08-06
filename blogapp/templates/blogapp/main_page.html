@@ -1,26 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main page</title>
+    <link rel="stylesheet" href="{% static 'css/blogapp.css' %}">
 </head>
 <body>
-<p>Список рубрик:
-<p>
-    {% for rubric in rubrics %}
+<header class="header">
+    <div class="header-content">
+        <p>Список рубрик:</p>
+        <p>
+            {% for rubric in rubrics %}
 
-    <a href="{% url 'rubricView' pk=rubric.pk %}">{{rubric.name}} | </a>
+            <a href="{% url 'rubricView' pk=rubric.pk %}">{{rubric.name}} | </a>
 
-{% endfor %}
-</p>
-<a href="{% url 'post_new' %}">Новая запись</a>
-{% for post in posts %}
-<div>
-    <h2><a href="{% url 'post' pk=post.pk %}">{{ post.title }}</a></h2>
-    <p>Выложил(а): {{ post.user.nickname }} ({{ post.user.name }})</p>
-    <p>Тема: {{ post.rubric.name }}</p>
-    <p>Дата последнего редактирвания: {{ post.edited_time|date:"d.m.Y H:i:s" }}</p>
-</div>
-{% endfor %}
+            {% endfor %}
+        </p>
+        <a class='header-content' href="{% url 'post_new' %}">Новая запись</a>
+    </div>
+</header>
+<section class="content">
+    {% for post in posts %}
+
+    <div class="post">
+        <h2 class="post-title"><a href="{% url 'post' pk=post.pk %}">{{ post.title }}</a></h2>
+        <p>Выложил(а): {{ post.user.nickname }} ({{ post.user.name }})</p>
+        <p>Тема: {{ post.rubric.name }}</p>
+        <p>Дата последнего редактирвания: {{ post.edited_time|date:"d.m.Y H:i:s" }}</p>
+    </div>
+
+    {% endfor %}
+</section>
+<footer class="footer">
+    <div class="footer-detail">
+        <p>WhiteMediaGroup</p>
+        <p align="center">WMG</p>
+    </div>
+</footer>
+
 </body>
 </html>

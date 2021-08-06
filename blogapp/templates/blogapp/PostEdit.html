@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание записи</title>
+</head>
+<body>
+<a href="{% url 'index' %}">На главную</a>
+<h1>Новая запись</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Исправить</button>
+</form>
+</body>
+</html>

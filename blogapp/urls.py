@@ -6,7 +6,8 @@ urlpatterns = [
     path('', MainPage.as_view(), name='index'),
     path('post/<int:pk>/', PostDetail.as_view(), name='post'),
     path('post/new/', NewPost.as_view(), name='post_new'),
-    path('rubric/<int:pk>/', RubricView.as_view(), name='rubricView')
+    path('rubric/<int:pk>/', RubricView.as_view(), name='rubricView'),
+    path('post/edit/', PostEdit, name='postEdit')
 ]
 
 # urlpatterns = [

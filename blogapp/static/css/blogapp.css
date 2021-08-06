@@ -1,0 +1,51 @@
+h1, h2, h3, h4, p, a {
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+
+}
+body {
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+    background-color: white;
+}
+.header{
+    display: inline-block;
+    background-color: #5f9ea0;
+    width: 100%;
+}
+.header-content{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.content{
+    width: 850px;
+    margin: 10px auto 50px auto;
+    background-color: bisque;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.post{
+    width: 700px;
+    margin: 5px auto 5px auto;
+    background-color: #5f9ea0;
+    padding: 10px 0px 10px 0px;
+    font-size: 20px;
+}
+.pots-title{
+
+}
+.footer{
+    background-color: black;
+    height: 400px;
+    margin-left: 0;
+    display: flex;
+}
+.footer-detail{
+    margin: auto;
+    color: white;
+    font-size: 30px;
+}

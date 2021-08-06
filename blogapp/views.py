@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.views.generic import DetailView
 from django.views.generic import ListView
 from django.views.generic import FormView
+from django.views.generic.edit import UpdateView
 from .forms import PostForm
 from .models import *
 
@@ -45,6 +46,11 @@ class NewPost(FormView):
     template_name = 'blogapp/PostForm.html'
     form_class = PostForm
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['rubrics'] = Rubric.objects.all()
+        return context
+
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
@@ -54,7 +60,19 @@ class NewPost(FormView):
         return self.object
 
     def get_success_url(self):
-        return reverse('blogapp:post', kwargs={'pk': self.object.cleaned_data['pk']})
+        return reverse('rubricView', kwargs={'pk': self.object.cleaned_data['rubric'].pk})
+
+
+class PostEdit(UpdateView):
+    model = Post
+    form_class = PostForm
+    success_url = '/'
+    template_name = 'blogapp/PostEdit.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['rubrics'] = Rubric.objects.all()
+        return context
 
 # def post_new(request):
 #     if request.method == "POST":
